@@ -1,6 +1,6 @@
 ## Project “Simulation”
 
-The project is a step-by-step simulation of a 2D world populated by herbivores and predators.
+The project is a console step-by-step simulation of a 2D world populated by herbivores and predators.
 The basic concept is to search for food by creatures, herbivores are looking for grass, carnivores are looking for herbivores.
 Also, the world is filled with static objects, such as: earth, mountains, trees, and grass.
 
