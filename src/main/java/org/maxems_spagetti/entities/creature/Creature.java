@@ -19,9 +19,6 @@ public abstract class Creature extends Entity {
         this.hp = hp;
     }
 
-    public Creature() {
-    }
-
     public abstract void makeMove(LinkedList<Coordinates> path, Map map);
 
     public abstract boolean isTypeOfExtraction(Entity entity);

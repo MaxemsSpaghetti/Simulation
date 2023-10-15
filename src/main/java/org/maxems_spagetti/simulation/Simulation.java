@@ -29,12 +29,12 @@ public class Simulation {
     }
 
 
-    public void nextTurn(TurnActions turnActions, Map map) {
+    private void nextTurn(TurnActions turnActions, Map map) {
         turnActions.turnActions();
         renderer.render(map);
     }
 
-    public void  startSimulation() {
+    private void  startSimulation() {
         Thread thread = new Thread(() -> {
             TurnActions turnActions = new TurnActions(map);
             while (true) {
@@ -63,9 +63,7 @@ public class Simulation {
             } else if (input.equalsIgnoreCase("r")) {
                 resumeSimulation();
             } else if (input.equalsIgnoreCase("q")) {
-                System.out.println("Simulation ended");
-                scanner.close();
-                System.exit(0);
+                endSimulation();
             }
         }
     }
@@ -75,8 +73,14 @@ public class Simulation {
         System.out.println("Simulation resumed");
     }
 
-    public void pauseSimulation() {
+    private void pauseSimulation() {
         isSimulationPaused = true;
         System.out.println("Simulation paused");
+    }
+
+    private void endSimulation() {
+        System.out.println("Simulation ended");
+        scanner.close();
+        System.exit(0);
     }
 }

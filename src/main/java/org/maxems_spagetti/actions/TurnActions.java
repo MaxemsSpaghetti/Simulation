@@ -41,11 +41,11 @@ public class TurnActions extends Actions {
     }
 
     @Override
-    public Coordinates createRandomPosition() {
+    protected Coordinates createRandomPosition() {
         return super.createRandomPosition();
     }
 
-    public void addExtraEntities() {
+    private void addExtraEntities() {
         int i = 2;
         while (i >= 0) {
             Coordinates coordinates = createRandomPosition();

@@ -13,10 +13,10 @@ public abstract class Actions {
         this.map = map;
     }
 
-    public Coordinates createRandomPosition() {
+    protected Coordinates createRandomPosition() {
         Random random = new Random();
-        int x = random.nextInt(map.getWidth());
-        int y = random.nextInt(map.getHeight());
+        int x = random.nextInt(map.getWIDTH());
+        int y = random.nextInt(map.getHEIGHT());
         return new Coordinates(x, y);
     }
 

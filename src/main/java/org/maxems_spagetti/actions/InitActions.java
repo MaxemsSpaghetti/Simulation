@@ -5,7 +5,6 @@ import org.maxems_spagetti.map.EntityFactory;
 import org.maxems_spagetti.map.Map;
 
 import java.util.HashMap;
-import java.util.Random;
 
 public class InitActions extends Actions {
 
@@ -43,7 +42,7 @@ public class InitActions extends Actions {
         amountOfEntities.put("Ground", 290);
     }
     @Override
-    public Coordinates createRandomPosition() {
+    protected Coordinates createRandomPosition() {
         return super.createRandomPosition();
     }
 }

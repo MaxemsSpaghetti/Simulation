@@ -10,21 +10,21 @@ import org.maxems_spagetti.entities.stationary.Tree;
 
 public class MapRenderer {
 
-    public static final String FOX = "\uD83E\uDD8A";
+    private static final String FOX = "\uD83E\uDD8A";
 
-    public static final String HARE = "\uD83D\uDC30";
+    private static final String HARE = "\uD83D\uDC30";
 
-    public static final String TREE = "\uD83C\uDF33";
+    private static final String TREE = "\uD83C\uDF33";
 
-    public static final String GRASS = "\uD83C\uDF40";
+    private static final String GRASS = "\uD83C\uDF40";
 
-    public static final String GROUND = "\uD83D\uDFE4";
+    private static final String GROUND = "\uD83D\uDFE4";
 
-    public static final String ROCK = "\uD83D\uDF9B";
+    private static final String ROCK = "\uD83D\uDF9B";
 
     public void render(Map map) {
-        for (int i = 0; i < map.getHeight(); i++) {
-            for (int j = 0; j < map.getWidth(); j++) {
+        for (int i = 0; i < map.getHEIGHT(); i++) {
+            for (int j = 0; j < map.getWIDTH(); j++) {
                 Entity entity = map.getEntity(new Coordinates(j, i));
                 if (entity instanceof Grass) {
                     System.out.print(GRASS);

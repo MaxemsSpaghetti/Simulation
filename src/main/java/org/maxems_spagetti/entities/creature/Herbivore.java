@@ -16,9 +16,6 @@ public class Herbivore extends Creature {
         super(coordinates, speed, hp);
     }
 
-    public Herbivore() {
-        super();
-    }
 
     @Override
     public void makeMove(LinkedList<Coordinates> path, Map map) {

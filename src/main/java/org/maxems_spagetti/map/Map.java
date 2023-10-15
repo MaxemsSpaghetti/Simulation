@@ -8,22 +8,22 @@ import java.util.HashMap;
 
 public class Map {
 
-    private final int width = 20;
+    private final int WIDTH = 20;
 
-    private final int height = 20;
+    private final int HEIGHT = 20;
 
     private HashMap<Coordinates, Creature> movedCreatures = new HashMap<>();
 
-    HashMap<Coordinates, Entity> entities = new HashMap<>();
+    private HashMap<Coordinates, Entity> entities = new HashMap<>();
 
 
 
-    public int getHeight() {
-        return height;
+    public int getHEIGHT() {
+        return HEIGHT;
     }
 
-    public int getWidth() {
-        return width;
+    public int getWIDTH() {
+        return WIDTH;
     }
 
     public void setEntity(Coordinates coordinates, Entity entity) {

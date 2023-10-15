@@ -81,8 +81,8 @@ public class AStarPathfinder {
     }
 
     private boolean isValidCoordinates(Coordinates coordinates) {
-        return coordinates.getX() >= 0 && coordinates.getX() < map.getWidth()
-                && coordinates.getY() >= 0 && coordinates.getY() < map.getHeight();
+        return coordinates.getX() >= 0 && coordinates.getX() < map.getWIDTH()
+                && coordinates.getY() >= 0 && coordinates.getY() < map.getHEIGHT();
     }
 
     private LinkedList<Coordinates> reconstructPath(EntityWrapper startEntityWrapper, EntityWrapper currentEntityWrapper) {
