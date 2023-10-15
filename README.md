@@ -10,11 +10,11 @@ which allows you to find the shortest path for the creature to the nearest victi
 It works for both predators and herbivores.
 
 ## Control features
-- If you want to pause the simulation, press 'p'
+- pause the simulation, press 'p'
 
-- If you want to resume the simulation, press 'r'
+- resume the simulation, press 'r'
 
-- If you want to quit the simulation, press 'q'
+- quit the simulation, press 'q'
 
 ## List of possible improvements
 
