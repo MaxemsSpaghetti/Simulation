@@ -18,7 +18,7 @@ public class MapRenderer {
 
     public static final String GRASS = "\uD83C\uDF40";
 
-    public static final String GROUND = "\uD83D\uDFE0";
+    public static final String GROUND = "\uD83D\uDFE4";
 
     public static final String ROCK = "\uD83D\uDF9B";
 

@@ -2,7 +2,8 @@ package org.maxems_spagetti.entities.creature;
 
 import org.maxems_spagetti.map.Coordinates;
 import org.maxems_spagetti.map.Map;
-import org.maxems_spagetti.map.Move;
+
+import java.util.LinkedList;
 
 public class Hare extends Herbivore {
 
@@ -13,9 +14,8 @@ public class Hare extends Herbivore {
     }
 
     @Override
-    public int makeMove(Move move, Map map, int countOfGrass) {
-        super.makeMove(move, map, countOfGrass);
-        return countOfGrass;
+    public void makeMove(LinkedList<Coordinates> path, Map map) {
+        super.makeMove(path, map);
     }
 
     public boolean isFullHP() {

@@ -8,9 +8,9 @@ import java.util.HashMap;
 
 public class Map {
 
-    private final int width = 7;
+    private final int width = 20;
 
-    private final int height = 7;
+    private final int height = 20;
 
     private HashMap<Coordinates, Creature> movedCreatures = new HashMap<>();
 
@@ -59,11 +59,5 @@ public class Map {
         movedCreatures.clear();
     }
 
-    public boolean isValidCoordinates(Coordinates coordinates) {
 
-        int x = coordinates.getX();
-        int y = coordinates.getY();
-
-        return x >= 0 && x < width && y >= 0 && y < height;
-    }
 }

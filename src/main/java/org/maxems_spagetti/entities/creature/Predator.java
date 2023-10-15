@@ -5,6 +5,8 @@ import org.maxems_spagetti.map.Coordinates;
 import org.maxems_spagetti.map.Map;
 import org.maxems_spagetti.map.Move;
 
+import java.util.LinkedList;
+
 public class Predator extends Creature {
 
     public Predator(Coordinates coordinates, int speed, int hp) {
@@ -13,33 +15,22 @@ public class Predator extends Creature {
 
 
     @Override
-    public int makeMove(Move move, Map map, int countOfHerbivores) {
-        Predator predator = (Predator) map.getEntity(move.from);
-        map.removeEntity(move.from);
-        if (map.getEntity(move.to) instanceof Herbivore
-                && move.from.getX() - move.to.getX() == 1
-                && move.from.getY() - move.to.getY() == 1) {
-            bite(move, map, countOfHerbivores);
+    public void makeMove(LinkedList<Coordinates> path, Map map) {
+        Move move;
+        if (path.size() <= 3) {
+            move = new Move(path.getFirst(), path.getLast());
+        } else {
+            move = new Move(path.getFirst(), path.get(2));
         }
-        map.setEntity(move.to, predator);
-        map.replaceEntityToGround(move.from);
-        map.setMovedCreature(move.to, predator);
-        return countOfHerbivores;
+        Predator predator = (Predator) map.getEntity(move.from);
+            map.removeEntity(move.from);
+            map.setEntity(move.to, predator);
+            map.replaceEntityToGround(move.from);
+            map.setMovedCreature(move.to, predator);
     }
 
     @Override
     public boolean isTypeOfExtraction(Entity entity) {
         return entity instanceof Hare;
-    }
-
-    private int bite(Move move, Map map, int countOfHerbivores) {
-        Hare hare = (Hare) map.getEntity(move.to);
-        if (hare.isFullHP()) {
-            hare.setHP(50);
-        } else {
-            map.replaceEntityToGround(move.to);
-            --countOfHerbivores;
-        }
-        return countOfHerbivores;
     }
 }

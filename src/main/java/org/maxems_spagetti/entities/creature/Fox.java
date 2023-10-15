@@ -2,7 +2,8 @@ package org.maxems_spagetti.entities.creature;
 
 import org.maxems_spagetti.map.Coordinates;
 import org.maxems_spagetti.map.Map;
-import org.maxems_spagetti.map.Move;
+
+import java.util.LinkedList;
 
 public class Fox extends Predator {
 
@@ -12,8 +13,7 @@ public class Fox extends Predator {
     }
 
     @Override
-    public int makeMove(Move move, Map map, int countOfHerbivores) {
-        super.makeMove(move, map, countOfHerbivores);
-        return countOfHerbivores;
+    public void makeMove(LinkedList<Coordinates> path, Map map) {
+        super.makeMove(path, map);
     }
 }

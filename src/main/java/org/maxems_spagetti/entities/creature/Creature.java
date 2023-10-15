@@ -2,8 +2,9 @@ package org.maxems_spagetti.entities.creature;
 
 import org.maxems_spagetti.map.Coordinates;
 import org.maxems_spagetti.map.Map;
-import org.maxems_spagetti.map.Move;
 import org.maxems_spagetti.entities.Entity;
+
+import java.util.LinkedList;
 
 public abstract class Creature extends Entity {
 
@@ -21,7 +22,7 @@ public abstract class Creature extends Entity {
     public Creature() {
     }
 
-    public abstract int makeMove(Move move, Map map, int count);
+    public abstract void makeMove(LinkedList<Coordinates> path, Map map);
 
     public abstract boolean isTypeOfExtraction(Entity entity);
 }

@@ -5,11 +5,18 @@ import org.maxems_spagetti.map.MapRenderer;
 import org.maxems_spagetti.actions.InitActions;
 import org.maxems_spagetti.actions.TurnActions;
 
+import java.util.Scanner;
+
+
 public class Simulation {
 
     private static Map map = new Map();
 
-    private static MapRenderer renderer = new MapRenderer();
+    private static final MapRenderer renderer = new MapRenderer();
+
+    private final Scanner scanner = new Scanner(System.in);
+
+    private volatile boolean isSimulationPaused = false;
 
     public static void main(String[] args) {
         Simulation simulation = new Simulation();
@@ -28,19 +35,48 @@ public class Simulation {
     }
 
     public void  startSimulation() {
-        TurnActions turnActions = new TurnActions(map);
-        int i = 7;
-        while (i >= 0) {
-            System.out.println();
-            nextTurn(turnActions, map);
+        Thread thread = new Thread(() -> {
+            TurnActions turnActions = new TurnActions(map);
+            while (true) {
+                if (!isSimulationPaused) {
+                    System.out.println();
+                    nextTurn(turnActions, map);
+                    try {
+                        Thread.sleep(2000);
+                    } catch (InterruptedException e) {
+                        break;
+                    }
+                }
+            }
+        });
 
-            System.out.println();
-            System.out.println();
-            i--;
+        thread.start();
+
+        System.out.println("If you want to pause the simulation, press 'p'");
+        System.out.println("If you want to resume the simulation, press 'r'");
+        System.out.println("If you want to quit the simulation, press 'q'");
+
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("p")) {
+                pauseSimulation();
+            } else if (input.equalsIgnoreCase("r")) {
+                resumeSimulation();
+            } else if (input.equalsIgnoreCase("q")) {
+                System.out.println("Simulation ended");
+                scanner.close();
+                System.exit(0);
+            }
         }
     }
 
-    public void pauseSimulation() {
+    private void resumeSimulation() {
+        isSimulationPaused = false;
+        System.out.println("Simulation resumed");
+    }
 
+    public void pauseSimulation() {
+        isSimulationPaused = true;
+        System.out.println("Simulation paused");
     }
 }
